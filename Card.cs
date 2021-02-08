@@ -10,5 +10,15 @@
             Name = name;
             Value = value;
         }
+
+        public bool IsAce()
+        {
+            if (Name == CardFactory.Ace)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
