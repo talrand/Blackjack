@@ -47,6 +47,7 @@
     <Compile Include="CardFactory.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="ListExtensions.cs" />
+    <Compile Include="Hand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
