@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BlackJack
+﻿namespace Blackjack
 {
     public static class CardFactory
     {
@@ -12,6 +6,8 @@ namespace BlackJack
         {
             switch (cardNumber)
             {
+                case 1:
+                    return new Card("Ace", 10);
                 case 11:
                     return new Card("Jack", 10);
                 case 12:
