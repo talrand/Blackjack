@@ -27,6 +27,7 @@ namespace Blackjack
                 }
             }
 
+            // Randomly sort cards
             Shuffle();
         }
 
@@ -35,16 +36,25 @@ namespace Blackjack
             Cards.Shuffle();
         }
 
-        public Card Draw()
+        public Card[] Draw(int numberOfCards)
         {
-            // Get next card in the deck
-            Card card = Cards[1];
+            Card[] drawnCards = new Card[numberOfCards];
+            Card nextCard = null;
 
-            // Remove card from deck
-            Cards.Remove(card);
+            for (int i = 1; i <= numberOfCards; i++)
+            {
+                // Get next card from deck
+                nextCard = Cards[1];
+
+                // Remove card from deck
+                Cards.Remove(nextCard);
+
+                // Add to return array
+                drawnCards[i - 1] = nextCard;
+            }
 
             // Return card to player
-            return card;
+            return drawnCards;
         }
     }
 }

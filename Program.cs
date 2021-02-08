@@ -11,11 +11,10 @@ namespace Blackjack
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-            Card card = null;
+            Card[] hand = deck.Draw(7);
 
-            for (int i = 1; i <6; i++)
+            foreach (Card card in hand)
             {
-                card = deck.Draw();
                 Console.WriteLine(card.Name);
             }
 
