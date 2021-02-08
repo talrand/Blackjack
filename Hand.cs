@@ -8,12 +8,28 @@ namespace Blackjack
 {
     public class Hand
     {
-        public List<Card> Cards { get; }
+        private List<Card> Cards = new List<Card>();
 
-        public Hand()
+        public void AddCardToHand(Card card)
         {
-            Cards = new List<Card>();
+            Cards.Add(card);
         }
 
+        public bool IsNaturalBlackjack()
+        {
+            // Natural blackjacks can only have 2 cards
+            if (Cards.Count != 2)
+            {
+                return false;
+            }
+
+            // Natural blackjack occurs when 1 card is an ace and the other is worth 10
+            if(Cards[1].IsAce() == true && Cards[2].Value == 10 || (Cards[1].Value == 10 && Cards[2].IsAce() == true))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
