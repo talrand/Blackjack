@@ -7,7 +7,7 @@
             switch (cardNumber)
             {
                 case 1:
-                    return new Card("Ace", 10);
+                    return new Card("Ace", 11);
                 case 11:
                     return new Card("Jack", 10);
                 case 12:
