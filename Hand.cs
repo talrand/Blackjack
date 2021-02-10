@@ -31,5 +31,29 @@ namespace Blackjack
 
             return false;
         }
+
+        public bool IsBust()
+        {
+            // A hand is bust if the total value is over 21
+            if(GetTotalCardValue() > 21)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public int GetTotalCardValue()
+        {
+            int handValue = 0;
+
+            // Add up value of each card in hand
+            foreach(Card card in Cards)
+            {
+                handValue = handValue + card.Value;
+            }
+
+            return handValue;
+        }
     }
 }
