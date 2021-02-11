@@ -50,7 +50,15 @@ namespace Blackjack
             // Add up value of each card in hand
             foreach(Card card in Cards)
             {
-                handValue = handValue + card.Value;
+                // Aces can be 1 or 11. If an Ace would cause a hand to go bust treat it as a value of 1
+                if (card.IsAce() == true && (handValue + card.Value > 21))
+                {
+                    handValue = handValue + 1;
+                }
+                else
+                {
+                    handValue = handValue + card.Value;
+                }
             }
 
             return handValue;
