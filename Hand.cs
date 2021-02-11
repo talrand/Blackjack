@@ -24,7 +24,7 @@ namespace Blackjack
             }
 
             // Natural blackjack occurs when 1 card is an ace and the other is worth 10
-            if(Cards[1].IsAce() == true && Cards[2].Value == 10 || (Cards[1].Value == 10 && Cards[2].IsAce() == true))
+            if(Cards[0].IsAce() == true && Cards[1].Value == 10 || (Cards[0].Value == 10 && Cards[1].IsAce() == true))
             {
                 return true;
             }
@@ -62,6 +62,23 @@ namespace Blackjack
             }
 
             return handValue;
+        }
+
+        public string GetCardNames()
+        {
+            string cardNames = "";
+
+            foreach (Card card in Cards)
+            {
+                if (cardNames != "")
+                {
+                    cardNames = cardNames + ", ";
+                }
+
+                cardNames = cardNames + card.Name;
+            }
+
+            return cardNames;
         }
     }
 }
