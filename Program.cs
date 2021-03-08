@@ -14,6 +14,7 @@ namespace Blackjack
         {
             Hand playerHand = null;
             Card drawnCard = null;
+            Hand dealerHand = null;
 
             try
             {
@@ -22,12 +23,18 @@ namespace Blackjack
                 OutputHand(playerHand);
                 
                 // If player's hand contains a natural blackjack they win
-                if (playerHand.IsNaturalBlackjack() == true)
+                if (playerHand.IsNatural() == true)
                 {
                     Console.WriteLine("Congratulations! You win!");
                 }
                 else
                 {
+                    // Draw dealer's hand
+                    dealerHand = CreateStartingHand();
+
+                    // Reveal first card of dealer's hand
+                    Console.WriteLine("Dealer reveals : " + dealerHand.RevealFirstCard());
+
                     // Draw cards until player stands or their hand goes bust
                     while(GetPlayerAction() == "HIT")
                     {

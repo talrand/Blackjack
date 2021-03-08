@@ -15,7 +15,7 @@ namespace Blackjack
             Cards.Add(card);
         }
 
-        public bool IsNaturalBlackjack()
+        public bool IsNatural()
         {
             // Natural blackjacks can only have 2 cards
             if (Cards.Count != 2)
@@ -79,6 +79,11 @@ namespace Blackjack
             }
 
             return cardNames;
+        }
+
+        public string RevealFirstCard()
+        {
+            return Cards[0].Name;
         }
     }
 }
