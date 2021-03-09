@@ -48,11 +48,46 @@ namespace Blackjack
                             break;
                         }
                     }
+
+                    if (playerHand.IsBust() == false)
+                    {
+                        // Dealer logic
+                        // Dealer will always draw if their hand is worth 17 or less
+                        while(dealerHand.GetTotalCardValue() < 18)
+                        {
+                            dealerHand.AddCardToHand(deck.Draw(1)[0]);
+
+                            // Check if dealer is bust
+                            if (dealerHand.IsBust() == true)
+                            {
+                                // Inform user
+                                Console.WriteLine("Dealer reveals their hand");
+                                OutputHand(dealerHand);
+                                Console.WriteLine("Dealer is bust. You win!");
+                            }
+                        }
+
+                        // If dealer didn't go bust, reveal hand and compare with player's hand
+                        if(dealerHand.IsBust() == false)
+                        {
+                            Console.WriteLine("Dealer reveals their hand");
+                            OutputHand(dealerHand);
+
+                            if(playerHand.GetTotalCardValue() > dealerHand.GetTotalCardValue())
+                            {
+                                Console.WriteLine("You win");
+                            }
+                            else
+                            {
+                                Console.WriteLine("You lose");
+                            }
+                        }
+                    }
                 }
 
+                // Close
                 Console.WriteLine("Press any key to close...");
                 Console.ReadLine();
-
             }
             catch(Exception ex)
             {
