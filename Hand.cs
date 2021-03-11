@@ -81,9 +81,26 @@ namespace Blackjack
             return cardNames;
         }
 
-        public string RevealFirstCard()
+        public string GetFirstCard()
         {
             return Cards[0].Name;
+        }
+
+        public bool IsSplittable()
+        {
+            // Hand only splittable if it contains 2 cards
+            if (Cards.Count != 2)
+            {
+                return false;
+            }
+
+            // Both cards in hand must be the same
+            if (Cards[0].Name.Equals(Cards[1].Name))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

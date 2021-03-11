@@ -33,7 +33,7 @@ namespace Blackjack
                     dealerHand = CreateStartingHand();
 
                     // Reveal first card of dealer's hand
-                    Console.WriteLine("Dealer reveals : " + dealerHand.RevealFirstCard());
+                    Console.WriteLine("Dealer reveals : " + dealerHand.GetFirstCard());
 
                     // Draw cards until player stands or their hand goes bust
                     while(GetPlayerAction() == "HIT")
