@@ -47,8 +47,11 @@ namespace Blackjack
         {
             int handValue = 0;
 
+            // Sort hand so Aces are always last - fixes bug with hand going bust when ace isn't last card
+            Cards.Sort(new CardSorter());
+
             // Add up value of each card in hand
-            foreach(Card card in Cards)
+            foreach (Card card in Cards)
             {
                 // Aces can be 1 or 11. If an Ace would cause a hand to go bust treat it as a value of 1
                 if (card.IsAce() == true && (handValue + card.Value > 21))
