@@ -105,5 +105,19 @@ namespace Blackjack
 
             return false;
         }
+
+        public Hand Split()
+        {
+            Hand splitHand = new Hand();
+            Card card = Cards[0];
+            
+            // Remove card from existing hand
+            Cards.Remove(card);
+
+            // Add removed card to split hand
+            splitHand.AddCardToHand(card);
+
+            return splitHand;
+        }
     }
 }
